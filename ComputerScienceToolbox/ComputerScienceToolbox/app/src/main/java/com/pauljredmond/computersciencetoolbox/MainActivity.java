@@ -101,21 +101,16 @@ public class MainActivity extends AppCompatActivity
 
             else if(id == R.id.menu_donate){
                 //Reference: The following code is from: http://stackoverflow.com/questions/3004515/sending-an-intent-to-browser-to-open-specific-url
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZK8Y4R47QKGCC"));
+                intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZK8Y4R47QKGCC"));
                 //reference complete
 
             }//end else if
 
             else if(id == R.id.menu_github_link){
-                new Intent(Intent.ACTION_VIEW, Uri.parse("http://github.com/PaulRedmond94"));
+                intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.github.com/PaulRedmond94"));
 
             }
 
-        /*
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        }
-        */
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             startActivity(intent);
