@@ -1,5 +1,6 @@
 package com.pauljredmond.computersciencetoolbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,8 +59,10 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
             return true;
         }
 
@@ -69,24 +73,34 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        try{
+            int id = item.getItemId();
+            Intent intent = null;
+
+            if (id == R.id.menu_number_base_convertor){
+                intent = new Intent(MainActivity.this, NumberBaseConvertor.class);
+
+            }//end if base convertor
+            else if(id == R.id.menu_number_base_calculator){
+                intent = new Intent(MainActivity.this, NumberBaseCalculator.class);
+
+            }//end else if base calculator
+            else if(id == R.id.menu_ascii_table){
+                intent = new Intent(MainActivity.this,AsciiTable.class);
+
+            }//end else if
         /*
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
         */
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            startActivity(intent);
+        }catch(NullPointerException exception){
+            Toast.makeText(this,"You found an error! Lucky you!",Toast.LENGTH_SHORT).show();
+
+        }//end try/catch to catch errors for null pointers for menu
         return true;
-    }
+    }//end on navigation item selcted
 }

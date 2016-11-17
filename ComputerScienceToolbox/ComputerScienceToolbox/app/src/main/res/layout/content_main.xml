@@ -14,7 +14,24 @@
     tools:showIn="@layout/app_bar_main">
 
     <TextView
+        android:text='Click the "Help" button in the options menu for information on the current page'
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="false"
+        android:id="@+id/textView2"
+        android:layout_alignParentEnd="true"
+        tools:textAlignment="center" />
+
+    <TextView
+        android:text="Slide your finger from left to right to open the navigation menu, or press the button in the top left of your screen."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="77dp"
+        android:id="@+id/textView3"
+        android:layout_alignParentEnd="true"
+        tools:textSize="18sp"
+        android:textAlignment="center" />
 </RelativeLayout>

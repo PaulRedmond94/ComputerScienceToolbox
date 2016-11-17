@@ -18,6 +18,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".NumberBaseConvertor"
+            android:label="@string/title_activity_number_base_convertor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NumberBaseCalculator"
+            android:label="@string/title_activity_number_base_calculator"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AsciiTable"
+            android:label="@string/title_activity_ascii_table"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BitwiseCalculator"
+            android:label="@string/title_activity_bitwise_calculator"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BinaryTextConvertor"
+            android:label="@string/title_activity_binary_text_convertor"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

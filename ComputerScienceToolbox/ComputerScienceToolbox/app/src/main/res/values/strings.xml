@@ -5,4 +5,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="title_activity_number_base_convertor">Number Base Convertor</string>
+    <string name="title_activity_number_base_calculator">Number Base Calculator</string>
+    <string name="title_activity_ascii_table">Ascii Table</string>
+    <string name="title_activity_binary_text_calculator">Binary Text Calculator</string>
+    <string name="title_activity_bitwise_calculator">Bitwise Calculator</string>
+    <string name="title_activity_binary_text_convertor">Binary Text Convertor</string>
 </resources>
