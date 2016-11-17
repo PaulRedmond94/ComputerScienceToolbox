@@ -94,11 +94,10 @@
         android:text="Convert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
         android:id="@+id/btnBaseConvertor"
         android:onClick = "convertInput"
-        android:layout_below="@+id/textView6"
-        android:layout_toEndOf="@+id/radioGroup"
-        android:layout_marginStart="12dp" />
+        android:layout_marginStart="12dp"
+        android:layout_alignTop="@+id/radioGroup"
+        android:layout_toEndOf="@+id/radioGroup" />
 
 </RelativeLayout>

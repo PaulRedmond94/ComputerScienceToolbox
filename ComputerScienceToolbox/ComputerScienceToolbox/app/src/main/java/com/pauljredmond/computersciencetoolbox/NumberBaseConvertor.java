@@ -1,5 +1,6 @@
 package com.pauljredmond.computersciencetoolbox;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -10,6 +11,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -100,11 +102,12 @@ public class NumberBaseConvertor extends AppCompatActivity{
 
         }//end if rbDec is checked
 
+        //if input is binary
         else if(rbBin.isChecked()){
             //try/catch to check for errors
             try{
                 String temp = getDecimalVal(userInput);
-                txtOutput.append("\nThe Decimal equivalent of " + userInput + " is: \t" + temp);
+                txtOutput.append("\nThe Decimal equivalent of " + txtInput.getText().toString() + " is: \t" + temp);
                 getOctalVal(temp);
                 getHexadecimalVal(temp);
 
@@ -115,12 +118,51 @@ public class NumberBaseConvertor extends AppCompatActivity{
 
         }//end else if
 
+        //if input is octal
+        else if(rbOct.isChecked()){
+            //try/catch to check for errors
+            try{
+                String temp = getDecimalVal(userInput);
+                txtOutput.append("\nThe Decimal equivalent of " + userInput + " is: \t" + temp);
+                getBinaryVal(temp);
+                getHexadecimalVal(temp);
+
+            }catch(NumberFormatException nfe){
+                Toast.makeText(this,"Error, you didn't enter a valid Octal number!", Toast.LENGTH_SHORT).show();
+
+            }//end try/catch
+
+        }//end if input is octal
+
+        //if input is hexadecimal
+        else if(rbHex.isChecked()){
+            //try/catch to check for errors
+            try{
+                String temp = getDecimalVal(userInput);
+                txtOutput.append("\nThe Decimal equivalent of " + userInput + " is: \t" + temp);
+                getBinaryVal(temp);
+                getOctalVal(temp);
+
+            }catch(NumberFormatException nfe){
+                Toast.makeText(this,"Error, you didn't enter a valid Hexidecimal number!", Toast.LENGTH_SHORT).show();
+
+            }//end try/catch
+
+        }//end if input is hex
+
+        //hide keyboard
+        //Reference: Following code taken from: http://stackoverflow.com/questions/3400028/close-virtual-keyboard-on-button-press
+        InputMethodManager inputManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+        //reference ends
+
     }//end convertInput
 
     public String getDecimalVal(String value){
 
         //temporary value for getting decimalValue
-        int temp;
+        int temp=0;
 
         //check to see if binary radio button is checked
         if(rbBin.isChecked()){
@@ -138,27 +180,29 @@ public class NumberBaseConvertor extends AppCompatActivity{
 
         }//end if hex is changed
 
+        String returnVal = Integer.toString(temp);
 
+        return returnVal;
 
     }//end getDecimalVal
 
     public void getBinaryVal(String value){
         int temp = Integer.parseInt(value);
         String binaryVal = Integer.toString(temp,2);
-        txtOutput.append("\nThe Binary of equivalent of " + value + " is: \t" + binaryVal);
+        txtOutput.append("\nThe Binary of equivalent of " + txtInput.getText().toString() + " is: \t" + binaryVal);
 
     }//end getBinaryVal
 
     public void getOctalVal(String value){
         int temp = Integer.parseInt(value);
         String octalVal = Integer.toString(temp, 8);
-        txtOutput.append("\nThe Octal equivalent of " + value + " is: \t" + octalVal);
+        txtOutput.append("\nThe Octal equivalent of " + txtInput.getText().toString() + " is: \t" + octalVal);
 
     } //end getOctalVal
     public void getHexadecimalVal(String value){
         int temp = Integer.parseInt(value);
         String hexVal = Integer.toString(temp, 16);
-        txtOutput.append("\nThe Hexidecimal equivalent of " + value + " is: \t" + hexVal);
+        txtOutput.append("\nThe Hexidecimal equivalent of " + txtInput.getText().toString() + " is: \t" + hexVal);
 
     }//end getHexadecimalVal
 
