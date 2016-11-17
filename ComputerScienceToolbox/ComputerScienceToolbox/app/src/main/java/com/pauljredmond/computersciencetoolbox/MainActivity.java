@@ -1,6 +1,7 @@
 package com.pauljredmond.computersciencetoolbox;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -89,6 +90,27 @@ public class MainActivity extends AppCompatActivity
                 intent = new Intent(MainActivity.this,AsciiTable.class);
 
             }//end else if
+            else if(id == R.id.menu_binary_text_convertor){
+                intent = new Intent(MainActivity.this,BinaryTextConvertor.class);
+
+            }//end else if
+            else if(id == R.id.menu_bitwise_calculator){
+                intent = new Intent(MainActivity.this,BitwiseCalculator.class);
+
+            }//end else if
+
+            else if(id == R.id.menu_donate){
+                //Reference: The following code is from: http://stackoverflow.com/questions/3004515/sending-an-intent-to-browser-to-open-specific-url
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZK8Y4R47QKGCC"));
+                //reference complete
+
+            }//end else if
+
+            else if(id == R.id.menu_github_link){
+                new Intent(Intent.ACTION_VIEW, Uri.parse("http://github.com/PaulRedmond94"));
+
+            }
+
         /*
         if (id == R.id.nav_camera) {
             // Handle the camera action
