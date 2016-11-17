@@ -7,8 +7,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 public class NumberBaseCalculator extends AppCompatActivity {
+
+    //Declare objects to reference screen objects
+    Spinner opSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,17 @@ public class NumberBaseCalculator extends AppCompatActivity {
 
         });//end onclicklistener
 
-    }
+
+        //set up spinner
+        opSpinner= (Spinner) findViewById(R.id.spinOperations);
+        //set up arrayAdapter
+        //create arrayadapter for spinner
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.operations,android.R.layout.simple_spinner_item);
+
+        //specify layout to use for list of choices
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //apply adapter to spinner
+        opSpinner.setAdapter(adapter);
+    }//end onCreate
 
 }

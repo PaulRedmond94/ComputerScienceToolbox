@@ -14,12 +14,60 @@
     tools:showIn="@layout/activity_number_base_calculator">
 
     <TextView
-        android:text="Number Base Calculator"
+        android:text="Input 1: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="130dp"
-        android:id="@+id/textView4" />
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="41dp"
+        android:id="@+id/lblInput1" />
+
+    <TextView
+        android:text="Input 2: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblInput2"
+        android:layout_alignBaseline="@+id/txtUserInput2"
+        android:layout_alignBottom="@+id/txtUserInput2"
+        android:layout_alignStart="@+id/lblInput1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Input 2"
+        android:id="@+id/txtUserInput2"
+        android:ems="6"
+        tools:textSize="12sp"
+        android:maxEms="8"
+        android:maxLength="8"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/txtUserInput1"
+        android:layout_alignStart="@+id/txtUserInput1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Input 1"
+        android:id="@+id/txtUserInput1"
+        android:ems="6"
+        tools:textSize="12sp"
+        android:maxEms="8"
+        android:maxLength="8"
+        android:layout_marginStart="13dp"
+        android:layout_alignBaseline="@+id/lblInput1"
+        android:layout_alignBottom="@+id/lblInput1"
+        android:layout_toEndOf="@+id/lblInput1" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinOperations"
+        android:layout_marginEnd="14dp"
+        android:layout_below="@+id/txtUserInput2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp" />
+
 </RelativeLayout>
