@@ -54,4 +54,9 @@ public class NumberBaseCalculator extends AppCompatActivity {
         opSpinner.setAdapter(adapter);
     }//end onCreate
 
+    public void baseCalculate(View v){
+
+
+    }//end baseCalculate
+
 }

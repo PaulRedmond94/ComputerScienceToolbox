@@ -21,7 +21,7 @@
         android:layout_alignParentStart="false"
         android:id="@+id/textView2"
         android:layout_alignParentEnd="true"
-        tools:textAlignment="center" />
+        android:textAlignment="center" />
 
     <TextView
         android:text="Slide your finger from left to right to open the navigation menu, or press the button in the top left of your screen."

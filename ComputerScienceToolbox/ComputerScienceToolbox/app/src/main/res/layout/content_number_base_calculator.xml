@@ -70,4 +70,60 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp" />
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinOperations"
+        android:layout_alignStart="@+id/lblInput2"
+        android:id="@+id/radGrpBaseCalculator">
+
+        <RadioButton
+            android:text="Decimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radBtnDec"
+            android:layout_weight="1"
+            android:checked="true" />
+
+        <RadioButton
+            android:text="Binary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radBtnBinary"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Octal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radBtnOct"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Hexadecimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radBtnHex"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <Button
+        android:text="Calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:id="@+id/btnCalculateBaseCalculator"
+        android:layout_below="@+id/spinOperations"
+        android:layout_alignEnd="@+id/spinOperations"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/textView8"
+        android:layout_below="@+id/radGrpBaseCalculator"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="99dp"
+        android:onClick="baseCalculate"/>
+
 </RelativeLayout>
