@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Input 2"
+        android:text=""
         android:id="@+id/txtUserInput2"
         android:ems="6"
         tools:textSize="12sp"
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Input 1"
+        android:text=""
         android:id="@+id/txtUserInput1"
         android:ems="6"
         tools:textSize="12sp"
@@ -81,7 +81,7 @@
             android:text="Decimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radBtnDec"
+            android:id="@+id/radBtnDecBaseCalc"
             android:layout_weight="1"
             android:checked="true" />
 
@@ -89,21 +89,21 @@
             android:text="Binary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radBtnBinary"
+            android:id="@+id/radBtnBinaryBaseCalc"
             android:layout_weight="1" />
 
         <RadioButton
             android:text="Octal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radBtnOct"
+            android:id="@+id/radBtnOctBaseCalc"
             android:layout_weight="1" />
 
         <RadioButton
             android:text="Hexadecimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radBtnHex"
+            android:id="@+id/radBtnHexBaseCalc"
             android:layout_weight="1" />
     </RadioGroup>
 
@@ -115,15 +115,17 @@
         android:id="@+id/btnCalculateBaseCalculator"
         android:layout_below="@+id/spinOperations"
         android:layout_alignEnd="@+id/spinOperations"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:onClick="baseCalculate"
+        />
 
     <TextView
         android:layout_width="wrap_content"
-        android:id="@+id/textView8"
+        android:id="@+id/txtBaseCalcOutput"
         android:layout_below="@+id/radGrpBaseCalculator"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_height="99dp"
-        android:onClick="baseCalculate"/>
+        />
 
 </RelativeLayout>
