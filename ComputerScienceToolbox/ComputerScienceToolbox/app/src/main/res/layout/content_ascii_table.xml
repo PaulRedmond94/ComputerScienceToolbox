@@ -14,11 +14,68 @@
     tools:showIn="@layout/activity_ascii_table">
 
     <TextView
-        android:text="Ascii Table"
+        android:text="Input Type: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/lblView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/lblYourInputType" />
+
+    <TextView
+        android:text="Your Input: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:id="@+id/lblView"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="167dp"
-        android:id="@+id/textView5" />
+        android:layout_alignStart="@+id/lblYourInputType"
+        android:layout_marginStart="49dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/lblYourInputType"
+        android:layout_toEndOf="@+id/lblYourInputType"
+        android:layout_marginStart="12dp"
+        android:id="@+id/radGrpAscii">
+
+        <RadioButton
+            android:text="Character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radBtnCharacter"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:id="@+id/txtUserInputAscii"
+        android:ems="6"
+        tools:textSize="12sp"
+        android:maxEms="5"
+        android:maxLength="3"
+        android:layout_alignBottom="@+id/lblView"
+        android:layout_toEndOf="@+id/lblView" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radGrpAscii"
+        android:layout_toEndOf="@+id/lblView"
+        android:layout_marginTop="29dp"
+        android:id="@+id/button"
+        android:onClick="asciiTest"/>
 </RelativeLayout>

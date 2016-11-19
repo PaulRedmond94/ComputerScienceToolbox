@@ -6,9 +6,17 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.database.Cursor;
+import android.widget.Toast;
+
+import static android.database.DatabaseUtils.dumpCursorToString;
 
 public class AsciiTable extends AppCompatActivity {
+
+    Cursor myCursor;
+    MyDBManager db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +28,17 @@ public class AsciiTable extends AppCompatActivity {
         //Reference: The following line of code is from: http://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
         toolbar.setNavigationIcon(R.drawable.ic_home_white_24dp);
         //Reference complete
+
+        //set up db
+        db = new MyDBManager(this);
+        try{
+            db.open();
+            myCursor=db.getAllItems();
+
+        }catch(Exception e){
+            Toast.makeText(this, "error trying to open database",Toast.LENGTH_SHORT);
+
+        }
 
         //onClickListener for returning to the home page
         toolbar.setNavigationOnClickListener(new View.OnClickListener(){
@@ -36,6 +55,21 @@ public class AsciiTable extends AppCompatActivity {
 
         });//end onclicklistener
 
-    }
+    }//end onCreate
+
+    public void asciiTest (View v){
+        myCursor = db.getAllItems();
+
+
+        Log.e("error", "Cursor contents" + dumpCursorToString(myCursor));
+        /*
+        temp1 = myCursor.getString(myCursor.getColumnIndex(""));
+        temp2 = myCursor.getString(1);
+        temp3 = myCursor.getString(2);
+        temp4 = myCursor.getString(5);
+
+        Toast.makeText(this,temp1 + " " + temp2 + " " + temp3 + " " + temp4,Toast.LENGTH_SHORT).show();
+        */
+    }//end asciiTest
 
 }
