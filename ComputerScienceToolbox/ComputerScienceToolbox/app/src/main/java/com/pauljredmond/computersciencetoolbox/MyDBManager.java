@@ -54,16 +54,8 @@ public class MyDBManager
         public void onCreate(SQLiteDatabase db) {
             // The “Database_create” string below needs to contain the SQL statement needed to create the dB
             db.execSQL(DATABASE_CREATE);
-            //insert all the sql code for the ascii table
-            //dec 0 - 4
-            db.execSQL("insert into " + DATABASE_NAME + "(" + KEY_ROWID + ","+ KEY_ASCII_DECIMAL_VAL + "," + KEY_ASCII_CHARACTER + ") values(1,'0','[NULL]')");
-            db.execSQL("insert into " + DATABASE_NAME + "(" + KEY_ROWID + ","+ KEY_ASCII_DECIMAL_VAL + "," + KEY_ASCII_CHARACTER + ") values(2,'1','[Start of Heading]')");
-            db.execSQL("insert into " + DATABASE_NAME + "(" + KEY_ROWID + ","+ KEY_ASCII_DECIMAL_VAL + "," + KEY_ASCII_CHARACTER + ") values(3,'2','[Start of Text]')");
-            db.execSQL("insert into " + DATABASE_NAME + "(" + KEY_ROWID + ","+ KEY_ASCII_DECIMAL_VAL + "," + KEY_ASCII_CHARACTER + ") values(4,'3','[End of Text]')");
-            db.execSQL("insert into " + DATABASE_NAME + "(" + KEY_ROWID + ","+ KEY_ASCII_DECIMAL_VAL + "," + KEY_ASCII_CHARACTER + ") values(5,'4','[End of Transmission]')");
 
-
-        }
+        }//end onCreate
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -82,8 +74,7 @@ public class MyDBManager
         try{
             db = DBHelper.getWritableDatabase();
 
-            //db.execSQL("insert into " + DATABASE_NAME + "(" + KEY_ROWID + ","+ KEY_ASCII_DECIMAL_VAL + "," + KEY_ASCII_CHARACTER + ") values(45,'44',',')");
-
+            //db.execSQL("insert into " + DATABASE_NAME + "(" + KEY_ROWID + ","+ KEY_ASCII_DECIMAL_VAL + "," + KEY_ASCII_CHARACTER + ") values(91,'90','Z')");
 
         }catch(SQLException e) {
             Log.e("error", "Failed to open database: " + e);
