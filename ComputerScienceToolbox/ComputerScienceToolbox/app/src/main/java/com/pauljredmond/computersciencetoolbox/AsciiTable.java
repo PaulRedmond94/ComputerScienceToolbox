@@ -10,8 +10,13 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.database.Cursor;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import static android.database.DatabaseUtils.dumpCursorToString;
 
@@ -59,34 +64,128 @@ public class AsciiTable extends AppCompatActivity {
 
     }//end onCreate
 
-    /* Old method used to check the contents of the ascii Table
-    public void asciiTest (View v){
-        myCursor = db.getAllItems();
-        TextView temp = (TextView)findViewById(R.id.txtMyStuff);
-
-        temp.setText(dumpCursorToString(myCursor));
-        temp.setMovementMethod(new ScrollingMovementMethod());
-
-        Log.e("error", "Cursor contents" + dumpCursorToString(myCursor));
-
-
-        //temp1 = myCursor.getString(myCursor.getColumnIndex(""));
-        //temp2 = myCursor.getString(1);
-        //temp3 = myCursor.getString(2);
-        //temp4 = myCursor.getString(5);
-
-        //Toast.makeText(this,temp1 + " " + temp2 + " " + temp3 + " " + temp4,Toast.LENGTH_SHORT).show();
-
-
-    }*/
-
+    //function for searching database for valid record
     public void checkAsciiTable(View v){
-        Toast.makeText(this,"Check ascii table is working",Toast.LENGTH_SHORT).show();
+        //Load RadioButtons for verification purposes
+        RadioButton radBtnDecimal, radBtnCharacter;
+        radBtnDecimal = (RadioButton) findViewById(R.id.radBtnDecimalAscii);
+        radBtnCharacter = (RadioButton) findViewById(R.id.radBtnCharacterAscii);
+
+        //loadEditText
+        EditText txtUserInput;
+        txtUserInput = (EditText) findViewById(R.id.txtUserInputAscii);
+
+        //Load and clear output section
+        TextView txtAsciiOutput = (TextView) findViewById(R.id.txtAsciiOutput);
+        txtAsciiOutput.setText("");
+
+        MyDBManager db = new MyDBManager(this);
+
+        //hide the keyboard when the button is pressed
+        //Reference: Following code taken from: http://stackoverflow.com/questions/3400028/close-virtual-keyboard-on-button-press
+        InputMethodManager inputManager = (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+        //reference ends here
+
+        //validate the user has entered something OR check if user entered an input that is too long
+        if(txtUserInput.getText().length()<1||txtUserInput.getText().length()>3){
+            Toast.makeText(this,"Error, input must between 1 and 3 characters in Length!",Toast.LENGTH_SHORT).show();
+
+        }//end if
+        else{
+            //verify that a radio button is checked
+            if(!radBtnDecimal.isChecked() && !radBtnCharacter.isChecked()){
+                Toast.makeText(this,"Error, you never selected an input type!", Toast.LENGTH_SHORT).show();
+
+            }//end if
+
+            try{
+                db.open();
+                if(radBtnDecimal.isChecked()){
+                    //parse input
+                    try{
+                        int userInput;
+                        userInput = Integer.parseInt(txtUserInput.getText().toString());
+
+                        Cursor databaseReturnVal;
+                        databaseReturnVal = db.getItem(userInput);
+
+                        if(databaseReturnVal == null){
+                            Toast.makeText(this,"Error, no result found!",Toast.LENGTH_SHORT).show();
+
+                        }//end if
+                        else{
+                            if(databaseReturnVal.getCount()>1||databaseReturnVal.getCount()<1){
+                                Toast.makeText(this, "Error, your input returned more than one value. Could you try being more specific?",Toast.LENGTH_SHORT).show();
+
+                            }//end if
+                            else{
+                                txtAsciiOutput.setText("Decimal Value : " + databaseReturnVal.getInt(1) + "\nCharacter Value : " + databaseReturnVal.getString(2));
+
+                            }//end else
+                           //txtAsciiOutput.setText(dumpCursorToString(databaseReturnVal));
+
+                        }//end else
+
+                    }catch(NumberFormatException nfe){
+                        Toast.makeText(this, "Error you didn't enter a valid number!",Toast.LENGTH_SHORT).show();
+
+                    }//end catch
+
+                }//end if radBtnDecimal is checked
+
+                else if(radBtnCharacter.isChecked()){
+
+                    String userInput = txtUserInput.getText().toString();
+
+                    Cursor databaseReturnVal;
+                    Toast.makeText(this,userInput,Toast.LENGTH_SHORT).show();
+                    //Verify that no more than one character was entered
+                    if(userInput.length()!= 1){
+                        Toast.makeText(this, "Error, You must enter an input that is one character in length!", Toast.LENGTH_SHORT).show();
+
+                    }//end if
+                    else{
+                        databaseReturnVal = db.getItem(userInput);
+
+                        if(databaseReturnVal == null){
+                            Toast.makeText(this,"Error, no result found!",Toast.LENGTH_SHORT).show();
+
+                        }//end if
+                        else{
+                            if(databaseReturnVal.getCount()>1||databaseReturnVal.getCount()<1){
+                                Toast.makeText(this, "Error, your input returned more than one value. Could you try being more specific?",Toast.LENGTH_SHORT).show();
+
+                            }//end if
+                            else{
+                                txtAsciiOutput.setText("Decimal Value : " + databaseReturnVal.getInt(1) + "\nCharacter Value : " + databaseReturnVal.getString(2));
+
+                            }//end else
+                            //txtAsciiOutput.setText(dumpCursorToString(databaseReturnVal));
+
+                        }//end else
+
+                    }
+
+                }//end else if radBtncharacter is checked
+
+            }catch(Exception e){
+                Toast.makeText(this, "You have encountered a database error!",Toast.LENGTH_SHORT).show();
+
+            }finally{
+                db.close();
+
+            }//end try catch finally
+
+        }//end else
 
     }//end checkAsciiTable
 
+    //function for viewing the full database
     public void viewAsciiTable(View v){
-        Toast.makeText(this,"View full ascii table is working", Toast.LENGTH_SHORT).show();
+        Intent myIntent;
+        myIntent = new Intent(AsciiTable.this,ShowFullAsciiTable.class);
+        startActivity(myIntent);
 
     }//end viewAsciiTable
 

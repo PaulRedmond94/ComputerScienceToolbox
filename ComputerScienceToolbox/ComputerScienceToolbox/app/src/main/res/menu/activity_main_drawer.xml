@@ -2,32 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <!-- Fix me! -->
-        <item
-            android:id="@+id/menu_home"
-            android:icon="@drawable/ic_build_black_24dp"
-            android:title="Home" />
-        <!-- Fix me! -->
+
         <item
             android:id="@+id/menu_number_base_convertor"
             android:icon="@drawable/ic_build_black_24dp"
             android:title="Number Base Convertor" />
-        <!-- Fix me! -->
+
         <item
             android:id="@+id/menu_number_base_calculator"
             android:icon="@drawable/ic_build_black_24dp"
             android:title="Number Base Calculator" />
-        <!-- Fix me! -->
+
         <item
             android:id="@+id/menu_ascii_table"
             android:icon="@drawable/ic_build_black_24dp"
             android:title="ASCII Table" />
-        <!-- Fix me! -->
+
         <item
             android:id="@+id/menu_binary_text_convertor"
             android:icon="@drawable/ic_build_black_24dp"
             android:title="Binary/Text Convertor" />
-        <!-- Fix me! -->
+
         <item
             android:id="@+id/menu_bitwise_calculator"
             android:icon="@drawable/ic_build_black_24dp"
@@ -37,7 +32,7 @@
 
     <item android:title="Links">
         <menu>
-            <!-- Fix me! -->
+
             <item
                 android:id="@+id/menu_github_link"
                 android:icon="@drawable/ic_account_circle_black_24dp"

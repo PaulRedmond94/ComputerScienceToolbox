@@ -11,7 +11,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.pauljredmond.computersciencetoolbox.AsciiTable"
-    tools:showIn="@layout/activity_ascii_table">
+    tools:showIn="@layout/activity_ascii_table"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
 
     <TextView
         android:text="Input Type: "
@@ -45,14 +47,14 @@
             android:text="Character"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radBtnCharacter"
+            android:id="@+id/radBtnCharacterAscii"
             android:layout_weight="1" />
 
         <RadioButton
             android:text="Decimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radioButton"
+            android:id="@+id/radBtnDecimalAscii"
             android:layout_weight="1" />
     </RadioGroup>
 
@@ -75,7 +77,7 @@
         android:layout_below="@+id/button"
         android:layout_alignParentStart="true"
         android:layout_marginTop="54dp"
-        android:id="@+id/txtMyStuff"
+        android:id="@+id/txtAsciiOutput"
         android:layout_alignParentEnd="true"
         android:layout_height="200dp"
         android:maxLines = "20000"
@@ -96,7 +98,7 @@
         android:text="View Full Table"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/txtMyStuff"
+        android:layout_above="@+id/txtAsciiOutput"
         android:layout_toEndOf="@+id/button"
         android:layout_marginStart="22dp"
         android:id="@+id/btnViewAsciiTable"
