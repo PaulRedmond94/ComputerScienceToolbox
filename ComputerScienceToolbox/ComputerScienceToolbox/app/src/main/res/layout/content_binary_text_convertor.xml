@@ -13,4 +13,92 @@
     tools:context="com.pauljredmond.computersciencetoolbox.BinaryTextConvertor"
     tools:showIn="@layout/activity_binary_text_convertor">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:id="@+id/txtUserInputTxtBinCon"
+        android:ems="6"
+        tools:textSize="12sp"
+        android:maxEms="5"
+        android:maxLength="8"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4" />
+
+    <TextView
+        android:text="Your Input: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="36dp"
+        android:id="@+id/textView4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:id="@+id/btnAddBinTxtConv"
+        android:layout_below="@+id/radGrpBinTxtConv"
+        android:layout_alignParentStart="true"
+        android:onClick="convertUserInput"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/btnAddBinTxtConv"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="26dp"
+        android:id="@+id/txtOutputBinTxtConv"
+        android:layout_alignParentEnd="true"
+        android:text="Output"
+        android:layout_height="200dp" />
+
+    <Button
+        android:text="Clear Output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnClearBinTxtConv"
+        android:textSize="12sp"
+        android:onClick="clearOutput"
+        android:layout_above="@+id/txtOutputBinTxtConv"
+        android:layout_alignParentEnd="true" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radGrpBinTxtConv"
+        android:layout_marginTop="13dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/btnClearBinTxtConv">
+
+        <RadioButton
+            android:text="Character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radBtnCharacterBinTxtConv"
+            android:layout_weight="1"
+            android:checked="true" />
+
+        <RadioButton
+            android:text="Binary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radBtnBinaryBinTxtConv"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <Button
+        android:text="Space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSpaceBinTextConv"
+        android:onClick="addSpace"
+        android:layout_marginStart="20dp"
+        android:layout_alignBaseline="@+id/btnClearBinTxtConv"
+        android:layout_alignBottom="@+id/btnClearBinTxtConv"
+        android:layout_toEndOf="@+id/btnAddBinTxtConv" />
 </RelativeLayout>

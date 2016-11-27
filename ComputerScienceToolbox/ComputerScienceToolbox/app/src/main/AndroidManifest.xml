@@ -29,8 +29,7 @@
         <activity
             android:name=".AsciiTable"
             android:label="@string/title_activity_ascii_table"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BitwiseCalculator"
             android:label="@string/title_activity_bitwise_calculator"
@@ -39,9 +38,11 @@
             android:name=".BinaryTextConvertor"
             android:label="@string/title_activity_binary_text_convertor"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ShowFullAsciiTable">
-
-        </activity>
+        <activity android:name=".ShowFullAsciiTable" />
+        <activity
+            android:name=".ChangeAsciiTable"
+            android:label="@string/title_activity_change_ascii_table"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

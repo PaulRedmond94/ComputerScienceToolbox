@@ -116,7 +116,7 @@ public class AsciiTable extends AppCompatActivity {
                         }//end if
                         else{
                             if(databaseReturnVal.getCount()>1||databaseReturnVal.getCount()<1){
-                                Toast.makeText(this, "Error, your input returned more than one value. Could you try being more specific?",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this, "Error, no results found!",Toast.LENGTH_SHORT).show();
 
                             }//end if
                             else{

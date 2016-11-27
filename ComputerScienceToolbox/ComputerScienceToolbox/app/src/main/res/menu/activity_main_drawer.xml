@@ -14,19 +14,19 @@
             android:title="Number Base Calculator" />
 
         <item
-            android:id="@+id/menu_ascii_table"
-            android:icon="@drawable/ic_build_black_24dp"
-            android:title="ASCII Table" />
-
-        <item
             android:id="@+id/menu_binary_text_convertor"
             android:icon="@drawable/ic_build_black_24dp"
             android:title="Binary/Text Convertor" />
 
         <item
-            android:id="@+id/menu_bitwise_calculator"
+            android:id="@+id/menu_ascii_table"
             android:icon="@drawable/ic_build_black_24dp"
-            android:title="Bitwise Calculator" />
+            android:title="ASCII Table" />
+
+        <item
+            android:id="@+id/menu_edit_ascii_table"
+            android:icon="@drawable/ic_build_black_24dp"
+            android:title="Edit Ascii Table" />
 
     </group>
 

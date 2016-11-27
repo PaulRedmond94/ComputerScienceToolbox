@@ -334,4 +334,17 @@ public class MyDBManager
         return mCursor;
     }//end getItem
 
+    public boolean updateItem(long rowId,  String characterValue){
+        ContentValues args = new ContentValues();
+        args.put(KEY_ASCII_DECIMAL_VAL, rowId);
+        args.put(KEY_ASCII_CHARACTER, characterValue);
+        return db.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId,null)>0;
+
+    }//end updateItem
+
+    public boolean deleteItem(long rowId){
+        return db.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId,null)>0;
+
+    }
+
 }

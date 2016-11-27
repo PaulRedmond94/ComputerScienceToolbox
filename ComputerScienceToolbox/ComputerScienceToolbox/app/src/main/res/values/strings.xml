@@ -17,4 +17,5 @@
         <item>Multiplication</item>
         <item>Division</item>
     </string-array>
+    <string name="title_activity_change_ascii_table">ChangeAsciiTable</string>
 </resources>

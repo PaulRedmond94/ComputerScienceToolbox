@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //set up navigation drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -78,21 +79,26 @@ public class MainActivity extends AppCompatActivity
             int id = item.getItemId();
             Intent intent = null;
 
-            if(id == R.id.menu_number_base_calculator){
+            if(id == R.id.menu_number_base_convertor){
+                intent = new Intent(MainActivity.this, NumberBaseConvertor.class);
+
+            }//end if
+
+            else if(id == R.id.menu_number_base_calculator){
                 intent = new Intent(MainActivity.this, NumberBaseCalculator.class);
 
             }//end else if base calculator
+
             else if(id == R.id.menu_ascii_table){
                 intent = new Intent(MainActivity.this,AsciiTable.class);
-                finish();
 
             }//end else if
             else if(id == R.id.menu_binary_text_convertor){
                 intent = new Intent(MainActivity.this,BinaryTextConvertor.class);
 
             }//end else if
-            else if(id == R.id.menu_bitwise_calculator){
-                intent = new Intent(MainActivity.this,BitwiseCalculator.class);
+            else if(id == R.id.menu_edit_ascii_table){
+                intent = new Intent(MainActivity.this,ChangeAsciiTable.class);
 
             }//end else if
 
