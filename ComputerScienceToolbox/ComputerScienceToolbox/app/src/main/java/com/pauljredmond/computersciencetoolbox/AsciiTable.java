@@ -109,18 +109,21 @@ public class AsciiTable extends AppCompatActivity {
                 if(radBtnDecimal.isChecked()){
                     //parse input
                     try{
-                        //grab input
+                        //grab user input
                         int userInput;
                         userInput = Integer.parseInt(txtUserInput.getText().toString());
 
+                        //use a cursor to search for item
                         Cursor databaseReturnVal;
                         databaseReturnVal = db.getItem(userInput);
 
+                        //if there's no valid resuld
                         if(databaseReturnVal == null){
                             Toast.makeText(this,"Error, no result found!",Toast.LENGTH_SHORT).show();
 
                         }//end if
                         else{
+                            //for the weird cases that for some reason it returns everything when nothing is found
                             if(databaseReturnVal.getCount()>1||databaseReturnVal.getCount()<1){
                                 Toast.makeText(this, "Error, no results found!",Toast.LENGTH_SHORT).show();
 
@@ -129,7 +132,6 @@ public class AsciiTable extends AppCompatActivity {
                                 txtAsciiOutput.setText("Decimal Value : " + databaseReturnVal.getInt(1) + "\nCharacter Value : " + databaseReturnVal.getString(2));
 
                             }//end else
-                           //txtAsciiOutput.setText(dumpCursorToString(databaseReturnVal));
 
                         }//end else
 
@@ -140,29 +142,36 @@ public class AsciiTable extends AppCompatActivity {
 
                 }//end if radBtnDecimal is checked
 
+                //if user is submitting character
                 else if(radBtnCharacter.isChecked()){
 
+                    //get userInput
                     String userInput = txtUserInput.getText().toString();
 
+                    //define cursor to get database query results
                     Cursor databaseReturnVal;
-                    Toast.makeText(this,userInput,Toast.LENGTH_SHORT).show();
+
                     //Verify that no more than one character was entered
                     if(userInput.length()!= 1){
                         Toast.makeText(this, "Error, You must enter an input that is one character in length!", Toast.LENGTH_SHORT).show();
 
                     }//end if
                     else{
+                        //get results
                         databaseReturnVal = db.getItem(userInput);
 
+                        //if no result was found
                         if(databaseReturnVal == null){
                             Toast.makeText(this,"Error, no result found!",Toast.LENGTH_SHORT).show();
 
                         }//end if
                         else{
+                            //for the weird cases that for some reason it returns everything when nothing is found
                             if(databaseReturnVal.getCount()>1||databaseReturnVal.getCount()<1){
-                                Toast.makeText(this, "Error, your input returned more than one value. Could you try being more specific?",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this, "Error, no results found!",Toast.LENGTH_SHORT).show();
 
                             }//end if
+                            //display user output
                             else{
                                 txtAsciiOutput.setText("Decimal Value : " + databaseReturnVal.getInt(1) + "\nCharacter Value : " + databaseReturnVal.getString(2));
 
@@ -171,7 +180,7 @@ public class AsciiTable extends AppCompatActivity {
 
                         }//end else
 
-                    }
+                    }//end else
 
                 }//end else if radBtncharacter is checked
 
@@ -179,6 +188,7 @@ public class AsciiTable extends AppCompatActivity {
                 Toast.makeText(this, "You have encountered a database error!",Toast.LENGTH_SHORT).show();
 
             }finally{
+                //close database
                 db.close();
 
             }//end try catch finally

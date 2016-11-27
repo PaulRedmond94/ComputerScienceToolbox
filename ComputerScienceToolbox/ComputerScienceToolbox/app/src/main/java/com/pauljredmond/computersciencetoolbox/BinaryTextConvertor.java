@@ -43,7 +43,6 @@ public class BinaryTextConvertor extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //change activity code
-                //intent = new Intent(MainActivity.this, NumberBaseConvertor.class);
                 intent = new Intent(BinaryTextConvertor.this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -57,11 +56,13 @@ public class BinaryTextConvertor extends AppCompatActivity {
 
     }//end onCreate
 
+    //clear the output
     public void clearOutput(View v){
         txtOutput.setText("");
 
     }//end clearOutput
 
+    //add a space to the output
     public void addSpace(View v){
         txtOutput.append(" ");
 
@@ -73,29 +74,37 @@ public class BinaryTextConvertor extends AppCompatActivity {
         RadioButton radBtnBinary = (RadioButton)findViewById(R.id.radBtnBinaryBinTxtConv);
         EditText txtUserInput = (EditText)findViewById(R.id.txtUserInputTxtBinCon);
 
+        //if the binary radiobutton is checked
         if(radBtnBinary.isChecked()){
             currentState = 0;
 
         }//end if
 
+        //else case for the character radiobutton being checked
         else{
             currentState = 1;
 
         }//end else
 
+        //function to ensure user doesn't have characters and binary mixed together
         if(currentState != previousState && stateCookie==1){
             Toast.makeText(this, "Note, you cannot mix datatypes. Your output will be cleared.",Toast.LENGTH_SHORT).show();
             txtOutput.setText("");
 
         }//end if
 
+        //if there's no difference between the states
         else{
+            //if user is entering a radiobutton character
             if(radBtnCharacter.isChecked()){
+                //try for number format exceptions
                 try{
+                    //verify input length
                     if(txtUserInput.getText().toString().length()!=1){
                         Toast.makeText(this,"Error, character input must consist of only one character!", Toast.LENGTH_SHORT).show();
 
                     }//end if
+                    //if length is fine, convert it to binary
                     else{
                         char userValue = txtUserInput.getText().toString().charAt(0);
                         int temp = (int)userValue;
@@ -111,12 +120,14 @@ public class BinaryTextConvertor extends AppCompatActivity {
 
             }//end if character is the input type
             else{
+                //try to verify user input
                 try{
+                    //make sure length is valid
                     if (txtUserInput.getText().toString().length()<1 || txtUserInput.getText().toString().length()>8){
                         Toast.makeText(this, "Error, your input must be between 1 and 8 characters in length!",Toast.LENGTH_SHORT).show();
 
                     }//end if
-
+                    //if length is valid
                     else{
                         //parse user input to a binary integer
                         int userInput = Integer.parseInt(txtUserInput.getText().toString(),2);

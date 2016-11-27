@@ -159,6 +159,7 @@ public class NumberBaseConvertor extends AppCompatActivity{
 
     }//end convertInput
 
+    //function for decimal
     public String getDecimalVal(String value){
 
         //temporary value for getting decimalValue
@@ -186,6 +187,7 @@ public class NumberBaseConvertor extends AppCompatActivity{
 
     }//end getDecimalVal
 
+    //functions for converting
     public void getBinaryVal(String value){
         int temp = Integer.parseInt(value);
         String binaryVal = Integer.toString(temp,2);

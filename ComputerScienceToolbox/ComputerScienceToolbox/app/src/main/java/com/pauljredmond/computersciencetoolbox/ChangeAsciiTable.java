@@ -53,12 +53,15 @@ public class ChangeAsciiTable extends AppCompatActivity {
                 Toast.makeText(this, "Error, your character input must be at least one character in length!", Toast.LENGTH_SHORT).show();
 
             }//end if
+
+            //verify input length
             else if(userInputDec.getText().toString().length()<=0 || userInputDec.getText().toString().length()>3){
                 Toast.makeText(this, "Error, your decimal input must be between one and three characters in length!", Toast.LENGTH_SHORT).show();
 
             }
             else{
                 //inputs are at least valid in length now
+                //verify input is a valid long
                 try{
                     long userInputDecVal = Long.parseLong(userInputDec.getText().toString());
                     String userInputCharVal = userInputChar.getText().toString();
@@ -87,6 +90,7 @@ public class ChangeAsciiTable extends AppCompatActivity {
 
             }
             else{
+                //verify input is length
                 try{
                     long userInputDecVal = Long.parseLong(userInputDec.getText().toString());
 

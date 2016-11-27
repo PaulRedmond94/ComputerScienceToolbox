@@ -334,6 +334,7 @@ public class MyDBManager
         return mCursor;
     }//end getItem
 
+    //function to update item
     public boolean updateItem(long rowId,  String characterValue){
         ContentValues args = new ContentValues();
         args.put(KEY_ASCII_DECIMAL_VAL, rowId);
@@ -342,6 +343,7 @@ public class MyDBManager
 
     }//end updateItem
 
+    //function to delete an item
     public boolean deleteItem(long rowId){
         return db.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId,null)>0;
 
