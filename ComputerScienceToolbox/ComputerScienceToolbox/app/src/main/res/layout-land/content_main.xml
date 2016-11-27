@@ -14,16 +14,6 @@
     tools:showIn="@layout/app_bar_main">
 
     <TextView
-        android:text="Welcome to the Computer Science Toolbox. \nThis app features a number of tools for Computer Scientists to make their lives a little bit easier. "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="false"
-        android:id="@+id/textView2"
-        android:layout_alignParentEnd="true"
-        android:textAlignment="center" />
-
-    <TextView
         android:text="Slide your finger from left to right to open the navigation menu, or press the button in the top left of your screen."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,4 +24,14 @@
         android:layout_alignParentEnd="true"
         tools:textSize="18sp"
         android:textAlignment="center" />
+
+    <TextView
+        android:text="Welcome to the Computer Science Toolbox. \nThis app features a number of tools for Computer Scientists\n to make their lives a little bit easier. "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

@@ -22,6 +22,7 @@ import static android.database.DatabaseUtils.dumpCursorToString;
 
 public class AsciiTable extends AppCompatActivity {
 
+    //create database objects
     Cursor myCursor;
     MyDBManager db;
 
@@ -72,13 +73,13 @@ public class AsciiTable extends AppCompatActivity {
         radBtnCharacter = (RadioButton) findViewById(R.id.radBtnCharacterAscii);
 
         //loadEditText
-        EditText txtUserInput;
-        txtUserInput = (EditText) findViewById(R.id.txtUserInputAscii);
+        EditText txtUserInput = (EditText) findViewById(R.id.txtUserInputAscii);
 
         //Load and clear output section
         TextView txtAsciiOutput = (TextView) findViewById(R.id.txtAsciiOutput);
         txtAsciiOutput.setText("");
 
+        //assign db
         MyDBManager db = new MyDBManager(this);
 
         //hide the keyboard when the button is pressed
@@ -99,11 +100,16 @@ public class AsciiTable extends AppCompatActivity {
 
             }//end if
 
+            //try to avoid crashing from database error
             try{
+                //open database
                 db.open();
+
+                //if user checked the decimal radio button
                 if(radBtnDecimal.isChecked()){
                     //parse input
                     try{
+                        //grab input
                         int userInput;
                         userInput = Integer.parseInt(txtUserInput.getText().toString());
 

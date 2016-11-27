@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Ascii Decimal Value: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDecValAsciiTable"
+        android:layout_alignBaseline="@+id/ascii_decimal_val"
+        android:layout_alignBottom="@+id/ascii_decimal_val"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ascii_decimal_val"
+        android:padding="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/ascii_character_val" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ascii_character_val"
+        android:padding="10dp"
+        android:layout_below="@+id/ascii_decimal_val"
+        android:layout_toEndOf="@+id/txtAsciiCharacterVal" />
+
+    <TextView
+        android:text="Ascii Character Value: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtAsciiCharacterVal"
+        android:layout_alignBaseline="@+id/ascii_character_val"
+        android:layout_alignBottom="@+id/ascii_character_val"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

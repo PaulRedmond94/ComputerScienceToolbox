@@ -58,19 +58,6 @@
             android:layout_weight="1" />
     </RadioGroup>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text=""
-        android:id="@+id/txtUserInputAscii"
-        android:ems="6"
-        tools:textSize="12sp"
-        android:maxEms="5"
-        android:maxLength="3"
-        android:layout_alignBottom="@+id/lblView"
-        android:layout_toEndOf="@+id/lblView" />
-
     <TextView
         android:text=""
         android:layout_width="wrap_content"
@@ -103,4 +90,18 @@
         android:layout_marginStart="22dp"
         android:id="@+id/btnViewAsciiTable"
         android:onClick="viewAsciiTable"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:id="@+id/txtUserInputAscii"
+        android:ems="6"
+        tools:textSize="12sp"
+        android:maxEms="5"
+        android:maxLength="3"
+        android:layout_alignBaseline="@+id/lblView"
+        android:layout_alignBottom="@+id/lblView"
+        android:layout_toEndOf="@+id/lblView" />
 </RelativeLayout>

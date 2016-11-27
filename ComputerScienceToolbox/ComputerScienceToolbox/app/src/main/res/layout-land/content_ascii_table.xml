@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_ascii_table"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.pauljredmond.computersciencetoolbox.AsciiTable"
+    tools:showIn="@layout/activity_ascii_table"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/button"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp"
+        android:id="@+id/txtAsciiOutput"
+        android:layout_alignParentEnd="true"
+        android:layout_height="200dp"
+        android:maxLines = "5"
+        android:scrollbars = "vertical"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:id="@+id/txtUserInputAscii"
+        android:ems="6"
+        tools:textSize="12sp"
+        android:maxEms="5"
+        android:maxLength="3"
+        android:layout_alignBaseline="@+id/lblView"
+        android:layout_alignBottom="@+id/lblView"
+        android:layout_toEndOf="@+id/lblView" />
+
+    <Button
+        android:text="View Full Table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnViewAsciiTable"
+        android:onClick="viewAsciiTable"
+        android:layout_above="@+id/txtAsciiOutput"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Input Type: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblYourInputType"
+        android:layout_alignTop="@+id/txtUserInputAscii"
+        android:layout_toStartOf="@+id/radGrpAscii"
+        android:layout_marginEnd="26dp" />
+
+    <TextView
+        android:text="Your Input: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:id="@+id/lblView"
+        android:layout_marginStart="31dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Check Inputs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:onClick="checkAsciiTable"
+        android:layout_below="@+id/txtUserInputAscii"
+        android:layout_alignStart="@+id/lblView"
+        android:layout_marginTop="16dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radGrpAscii"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
+
+        <RadioButton
+            android:text="Character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radBtnCharacterAscii"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Decimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radBtnDecimalAscii"
+            android:layout_weight="1" />
+    </RadioGroup>
+</RelativeLayout>
