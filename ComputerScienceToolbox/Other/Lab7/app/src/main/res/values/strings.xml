@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">Lab7</string>
-    <string name="row1">Task Name:</string>
-    <string name="row2">Task Desc:</string>
-    <string name="row3">Complete Status:</string>
-</resources>
