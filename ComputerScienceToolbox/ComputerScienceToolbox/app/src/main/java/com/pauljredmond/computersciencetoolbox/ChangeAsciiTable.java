@@ -2,9 +2,6 @@ package com.pauljredmond.computersciencetoolbox;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -32,7 +29,7 @@ public class ChangeAsciiTable extends AppCompatActivity {
             myCursor=db.getAllItems();
 
         }catch(Exception e){
-            Toast.makeText(this, "error trying to open database",Toast.LENGTH_SHORT);
+            Toast.makeText(this, "error trying to open database",Toast.LENGTH_SHORT).show();
 
         }
 
@@ -68,6 +65,8 @@ public class ChangeAsciiTable extends AppCompatActivity {
 
                     if(db.updateItem(userInputDecVal,userInputCharVal)){
                         Toast.makeText(this,"Update Successful!",Toast.LENGTH_SHORT).show();
+                        userInputChar.setText("");
+                        userInputDec.setText("");
 
                     }
                     else{
@@ -96,10 +95,13 @@ public class ChangeAsciiTable extends AppCompatActivity {
 
                     if(db.deleteItem(userInputDecVal)){
                         Toast.makeText(this,"Delete Successful!",Toast.LENGTH_SHORT).show();
-
+                        userInputChar.setText("");
+                        userInputDec.setText("");
                     }
                     else{
                         Toast.makeText(this,"Delete Unsuccessful!",Toast.LENGTH_SHORT).show();
+                        userInputChar.setText("");
+                        userInputDec.setText("");
 
                     }//emd
 

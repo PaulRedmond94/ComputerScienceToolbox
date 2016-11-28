@@ -1,12 +1,9 @@
 package com.pauljredmond.computersciencetoolbox;
 
 import android.app.ListActivity;
-import android.content.Intent;
 import android.database.Cursor;
 import android.support.v4.widget.SimpleCursorAdapter;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 public class ShowFullAsciiTable extends ListActivity{
@@ -16,7 +13,6 @@ public class ShowFullAsciiTable extends ListActivity{
     int[] columnsLayout = {R.id.ascii_decimal_val, R.id.ascii_character_val};
     Cursor myCursor;
     MyDBManager db;
-    Intent listItemIntent;
     SimpleCursorAdapter myCursorAdapter;
 
     @Override

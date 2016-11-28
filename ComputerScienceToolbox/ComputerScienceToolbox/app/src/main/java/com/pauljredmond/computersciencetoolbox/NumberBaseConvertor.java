@@ -153,8 +153,8 @@ public class NumberBaseConvertor extends AppCompatActivity{
         //hide keyboard
         //Reference: Following code taken from: http://stackoverflow.com/questions/3400028/close-virtual-keyboard-on-button-press
         InputMethodManager inputManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+
         //reference ends
 
     }//end convertInput
@@ -181,9 +181,7 @@ public class NumberBaseConvertor extends AppCompatActivity{
 
         }//end if hex is changed
 
-        String returnVal = Integer.toString(temp);
-
-        return returnVal;
+        return Integer.toString(temp);
 
     }//end getDecimalVal
 
