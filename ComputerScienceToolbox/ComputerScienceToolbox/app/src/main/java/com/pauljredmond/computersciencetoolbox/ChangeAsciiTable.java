@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -22,7 +23,13 @@ public class ChangeAsciiTable extends AppCompatActivity {
         setContentView(R.layout.activity_change_ascii_table);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Toast.makeText(this, "Enter details for you wish to delete or update in the ascii table.", Toast.LENGTH_LONG).show();
+
+        //display a notification to the user but only once
+        if(MainActivity.getCookie()==0){
+            Toast.makeText(this, "Enter details for what you wish to delete or update in the ascii table.", Toast.LENGTH_LONG).show();
+            MainActivity.setCookieVal();
+
+        }//end if
 
         //setup home button
         //Reference: The following line of code is from: http://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
@@ -59,6 +66,13 @@ public class ChangeAsciiTable extends AppCompatActivity {
     }
 
     public void executeQuery(View v){
+
+        //hide the keyboard when the button is pressed
+        //Reference: Following code taken from: http://stackoverflow.com/questions/3400028/close-virtual-keyboard-on-button-press
+        InputMethodManager inputManager = (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+        //reference ends here
+
         //get variables
         RadioButton updateRadBtn = (RadioButton) findViewById(R.id.radBtnChangeAsciiUpdate);
         RadioButton deleteRadBtn = (RadioButton) findViewById(R.id.radBtnChangeAsciiDelete);

@@ -186,6 +186,8 @@ public class AsciiTable extends AppCompatActivity {
                                 }//end while
 
                             }//end else
+
+                            //old debug code pls remove me later
                             //txtAsciiOutput.setText(dumpCursorToString(databaseReturnVal));
 
                         }//end else

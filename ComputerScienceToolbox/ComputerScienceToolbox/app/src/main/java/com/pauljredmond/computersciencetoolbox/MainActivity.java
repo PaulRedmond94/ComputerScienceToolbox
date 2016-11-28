@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    public static int cookieEditAscii = 0;
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -100,4 +102,15 @@ public class MainActivity extends AppCompatActivity
         return true;
 
     }//end on navigation item selcted
+
+    //functions for changing cookie
+    public static int getCookie(){
+        return cookieEditAscii;
+
+    }//end getCookie
+
+    public static void setCookieVal(){
+        cookieEditAscii = 1;
+
+    }
 }
