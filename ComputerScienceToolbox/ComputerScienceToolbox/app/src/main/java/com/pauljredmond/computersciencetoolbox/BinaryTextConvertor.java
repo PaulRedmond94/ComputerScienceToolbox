@@ -149,6 +149,7 @@ public class BinaryTextConvertor extends AppCompatActivity {
 
         }//end else
 
+        //clear input
         txtUserInput.setText("");
 
         //used to indicate what type the user just entered
