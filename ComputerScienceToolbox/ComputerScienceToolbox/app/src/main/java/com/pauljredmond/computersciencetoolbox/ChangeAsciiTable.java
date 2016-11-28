@@ -1,5 +1,6 @@
 package com.pauljredmond.computersciencetoolbox;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,29 @@ public class ChangeAsciiTable extends AppCompatActivity {
         setContentView(R.layout.activity_change_ascii_table);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Toast.makeText(this, "Enter details for you wish to delete or update in the ascii table.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Enter details for you wish to delete or update in the ascii table.", Toast.LENGTH_LONG).show();
+
+        //setup home button
+        //Reference: The following line of code is from: http://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
+        toolbar.setNavigationIcon(R.drawable.ic_home_white_24dp);
+        //Reference complete
+
+        //onClickListener for returning to the home page
+        toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+
+            Intent intent;
+            @Override
+            public void onClick(View v){
+                //change activity code
+                //intent = new Intent(MainActivity.this, NumberBaseConvertor.class);
+                intent = new Intent(ChangeAsciiTable.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }//end on click
+
+        });//end onclicklistener
+
+
         //set up db
         db = new MyDBManager(this);
         try{

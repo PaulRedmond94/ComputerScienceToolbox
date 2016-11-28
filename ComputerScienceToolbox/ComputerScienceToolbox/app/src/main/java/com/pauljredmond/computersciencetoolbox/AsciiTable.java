@@ -80,6 +80,8 @@ public class AsciiTable extends AppCompatActivity {
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
         //reference ends here
 
+        txtAsciiOutput.setText("");
+
         //validate the user has entered something OR check if user entered an input that is too long
         if(txtUserInput.getText().length()<1||txtUserInput.getText().length()>3){
             Toast.makeText(this,"Error, input must between 1 and 3 characters in Length!",Toast.LENGTH_SHORT).show();
@@ -148,6 +150,12 @@ public class AsciiTable extends AppCompatActivity {
                         Toast.makeText(this, "Error, You must enter an input that is one character in length!", Toast.LENGTH_SHORT).show();
 
                     }//end if
+
+                    //special else if just in the event that a percentage is entered
+                    else if (userInput =="%"){
+                        txtAsciiOutput.setText("Decimal Value 37: \nCharacter Value : %");
+
+                    }//end else if
                     else{
                         //get results
                         databaseReturnVal = db.getItem(userInput);
@@ -159,13 +167,23 @@ public class AsciiTable extends AppCompatActivity {
                         }//end if
                         else{
                             //for the weird cases that for some reason it returns everything when nothing is found
-                            if(databaseReturnVal.getCount()>1||databaseReturnVal.getCount()<1){
+                            if(databaseReturnVal.getCount()<1){
                                 Toast.makeText(this, "Error, no results found!",Toast.LENGTH_SHORT).show();
 
                             }//end if
                             //display user output
                             else{
-                                txtAsciiOutput.setText("Decimal Value : " + databaseReturnVal.getInt(1) + "\nCharacter Value : " + databaseReturnVal.getString(2));
+                                myCursor.moveToFirst();
+                                while(!myCursor.isAfterLast()){
+                                    String decValue = myCursor.getString(myCursor.getColumnIndex("ascii_decimal_val"));
+                                    String characterVal = myCursor.getString(myCursor.getColumnIndex("ascii_character"));
+                                    if(characterVal.matches(txtUserInput.getText().toString())){
+                                        txtAsciiOutput.append("Decimal Value : " + decValue + "\nCharacter Value : " + characterVal + "\n");
+
+                                    }
+
+                                    myCursor.moveToNext();
+                                }//end while
 
                             }//end else
                             //txtAsciiOutput.setText(dumpCursorToString(databaseReturnVal));

@@ -56,7 +56,6 @@ public class NumberBaseCalculator extends AppCompatActivity {
 
         });//end onclicklistener
 
-
         //set up spinner
         opSpinner= (Spinner) findViewById(R.id.spinOperations);
         //set up arrayAdapter
